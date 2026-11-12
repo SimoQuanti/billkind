@@ -1,0 +1,13 @@
+{
+  "name": "billkind",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BillKind — interactive demo MVP. People share a bill or a story, others give a hand.",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

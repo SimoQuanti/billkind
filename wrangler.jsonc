@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "billkind",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-01",
+  // Static site lives in public/billkind so that asset paths match the /billkind route.
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/billkind/api/*"]
+  },
+  // A Route on a path wins over the Custom Domain of the main sqstudio.ch site.
+  "routes": [{ "pattern": "www.sqstudio.ch/billkind*", "zone_name": "sqstudio.ch" }],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": true },
+  // Secret (wrangler secret put): RESEND_API_KEY. Optional var: RESEND_SEGMENT_ID.
+  "vars": {
+    "MAIL_FROM": "BillKind <billkind@sqstudio.ch>",
+    "MAIL_TO": "info@sqstudio.ch"
+  }
+}

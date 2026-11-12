@@ -1,0 +1,4 @@
+# Local development only. Copy to .dev.vars
+# MAIL_DRY_RUN=1 logs emails instead of sending them.
+MAIL_DRY_RUN=1
+# RESEND_API_KEY=re_xxx
