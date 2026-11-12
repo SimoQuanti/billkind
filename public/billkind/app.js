@@ -165,11 +165,10 @@
     return `<article class="card req-card ${opts.deck ? "deck-card" : ""}" data-id="${r.id}">
       <div class="req-art">${art(r.cat)}<span class="pill pill-cat">${ic(CAT_ICON[r.cat] || "heart", 14)} ${catLabel(r)}</span></div>
       <div class="req-body">
-        <span class="pill pill-soft">${ic("shield", 13)} ${opts.status || t("sample")}</span>
+        ${opts.status ? `<span class="pill pill-soft">${ic("shield", 13)} ${opts.status}</span>` : ""}
         <button class="who" data-action="person" data-arg="${r.id}">
           ${avatar(r, 44)}
           <span class="who-text"><strong>${esc(displayName(r))}</strong><small>${esc(r.city)}${r.country ? " · " + r.country : ""}</small></span>
-          <span class="pill ${r.anon ? "pill-anon" : "pill-full"}">${t(r.anon ? "anonTag" : "fullTag")}</span>
         </button>
         <p class="amount">${money(need(r), r.cur)}</p>
         ${r.type === "story" ? progress(r) : ""}
@@ -373,8 +372,7 @@
            <button class="btn primary full" data-action="add-id" data-arg="${r.id}">${t("addToBasket")} · ${money(isStory ? amt : r.amount, r.cur)} ${ic("right")}</button>`;
       const head = `<div class="p-head">${avatar(r, 72)}
         <div><h2 id="modal-title">${esc(displayName(r))}</h2>
-        <p class="muted">${r.anon ? "" : (r.age ? `${r.age} ${t("years")} · ` : "")}${esc(r.city)}${r.country ? " · " + r.country : ""}</p>
-        <span class="pill ${r.anon ? "pill-anon" : "pill-full"}">${t(r.anon ? "anonTag" : "fullTag")}</span></div></div>`;
+        <p class="muted">${r.anon ? "" : (r.age ? `${r.age} ${t("years")} · ` : "")}${esc(r.city)}${r.country ? " · " + r.country : ""}</p></div></div>`;
       const ask = `<div class="p-ask"><span class="pill pill-cat static">${ic(CAT_ICON[r.cat] || "heart", 14)} ${catLabel(r)}</span>
         <p class="amount">${money(need(r), r.cur)}</p>${isStory ? progress(r) : ""}</div>`;
       const body = r.anon
@@ -399,7 +397,7 @@
       return `<div class="p-head">${avatar(d, 72, d.kind)}
           <div><h2 id="modal-title">${esc(name)}</h2>
           <p class="muted">${d.anon ? "" : `${d.handle ? esc(d.handle) + " · " : ""}${esc(d.city)}`}</p>
-          ${d.anon ? `<span class="pill pill-anon">${t("anonTag")}</span>` : kind}</div></div>
+          ${kind}</div></div>
         ${stats}
         ${d.anon ? `<div class="notice">${ic("eyeoff", 18)}<span>${t("donorAnonExplain")}</span></div>`
           : `<h3>${t("aboutMe")}</h3><p>${esc(L(d.bio))}</p><h3>${t("whyGive")}</h3><p class="quote">“${esc(L(d.why))}”</p>`}
@@ -468,7 +466,7 @@
         </form>`;
     },
 
-    about: () => `<h2 id="modal-title">${t("abTitle")}</h2>${["ab1", "ab2", "ab3", "ab4"].map((k) => `<p>${t(k)}</p>`).join("")}
+    about: () => `<h2 id="modal-title">${t("abTitle")}</h2><p>${t("ab4")}</p>
       <button class="btn outline full" data-action="close">${t("close")}</button>`,
   };
 
@@ -483,8 +481,8 @@
     const langs = ["it", "en"].map((l) => `<button class="flag ${S.lang === l ? "on" : ""}" data-action="lang" data-arg="${l}" aria-pressed="${S.lang === l}" aria-label="${l === "it" ? "Italiano" : "English"}" title="${l === "it" ? "Italiano" : "English"}">${FLAGS[l]}</button>`).join("");
     const header = `<header class="top">
       <button class="brand" data-action="go" data-arg="${inApp ? "discover" : "welcome"}" aria-label="BillKind">${LOGO}<span>Bill<b>Kind</b></span></button>
-      <div class="top-actions"><div class="flags" role="group" aria-label="${t("langLabel")}">${langs}</div>
-        <button class="mini" data-action="open" data-arg="waitlist">${t("waitlist")} ${ic("right", 14)}</button></div>
+      <div class="top-actions"><button class="mini" data-action="open" data-arg="waitlist">${t("waitlist")} ${ic("right", 14)}</button>
+        <div class="flags" role="group" aria-label="${t("langLabel")}">${langs}</div></div>
     </header>
     <p class="strip">${t("demoStrip")} · <button class="link inline" data-action="open" data-arg="contact">${t("contact")}</button></p>`;
 
@@ -547,7 +545,7 @@
       M.role = r;
       for (const b of el.parentElement.children) { b.classList.toggle("on", b === el); b.setAttribute("aria-pressed", b === el); }
     },
-    reset: () => { const lang = S.lang; S = defaults(); S.lang = lang; S.seen = true; save(); toast(t("prResetDone")); render(); },
+    reset: () => { const lang = S.lang; S = defaults(); S.lang = lang; M = null; save(); toast(t("prResetDone")); go("welcome"); window.scrollTo(0, 0); },
   };
 
   app.addEventListener("click", (e) => {

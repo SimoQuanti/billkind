@@ -2,7 +2,7 @@
 window.BK_I18N = {
   it: {
     title: "BillKind — Una bolletta, una mano tesa",
-    demoStrip: "Demo interattiva · richieste fittizie · nessun pagamento",
+    demoStrip: "Demo interattiva",
     waitlist: "Lista d'attesa",
     contact: "Contatti",
     about: "Info e privacy",
@@ -105,7 +105,7 @@ window.BK_I18N = {
     // leaderboard
     lTitle: "Classifica",
     lKicker: "Chi c'è stato",
-    lText: "I benefattori più generosi di BillKind. Chi vuole può donare in forma anonima.",
+    lText: "I benefattori più generosi di BillKind.",
     perMonth: "Mese",
     perYear: "Anno",
     perAll: "Sempre",
@@ -210,8 +210,8 @@ window.BK_I18N = {
     namePh: "Il tuo nome",
     topic: "Di cosa si tratta?",
     topicPh: "Scegli un argomento",
-    topicPartnerships: "Partnerships",
-    topicBuild: "Help build this",
+    topicPartnerships: "Collaborazioni",
+    topicBuild: "Aiutaci a costruirlo",
     message: "Messaggio",
     messagePh: "Raccontaci qualcosa in più…",
     ctSubmit: "Invia messaggio",
@@ -233,7 +233,7 @@ window.BK_I18N = {
 
   en: {
     title: "BillKind — One bill, one helping hand",
-    demoStrip: "Interactive demo · fictional requests · no payments",
+    demoStrip: "Interactive demo",
     waitlist: "Waitlist",
     contact: "Contact",
     about: "About & privacy",
@@ -327,7 +327,7 @@ window.BK_I18N = {
 
     lTitle: "Leaderboard",
     lKicker: "Those who showed up",
-    lText: "BillKind's most generous givers. Anyone can choose to give anonymously.",
+    lText: "BillKind's most generous givers.",
     perMonth: "Month",
     perYear: "Year",
     perAll: "All time",
