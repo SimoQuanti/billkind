@@ -253,7 +253,7 @@
         const badge = !d.anon && d.kind !== "person" ? `<span class="pill pill-kind">${ic(d.kind === "creator" ? "star" : "building", 12)} ${t(d.kind === "creator" ? "kCreator" : "kCompany")}</span>` : "";
         return `<li><button class="lb-row" data-action="donor" data-arg="${d.id}"><span class="rank r${i + 1}">${i + 1}</span>
           ${avatar(d, 40, d.kind)}
-          <span class="lb-name"><strong>${esc(name)}</strong><small>${badge} ${d.anon ? "" : esc(d.city) + " · "}${d.gifts} ${t("gifts")}</small></span>
+          <span class="lb-name"><strong>${esc(name)}</strong><small>${badge || (d.anon ? "" : esc(d.city) + " · ")}${d.gifts} ${t("gifts")}</small></span>
           <span class="lb-amt">${money(d.value, "EUR")}</span></button></li>`;
       };
       const hasYou = rows.some((r) => r.you);
