@@ -48,3 +48,7 @@ Optional: set `RESEND_SEGMENT_ID` to add waitlist contacts to a specific Resend 
 ## A note on brands
 
 The demo shows bill **categories** (electricity, gas, phone…) rather than real provider logos. Using a company's logo without permission can suggest a partnership that doesn't exist; real logos belong in the product once those partnerships do.
+
+## Fonts
+
+Marcellus (logo and headings) and Jost (text), both under the SIL Open Font License, self-hosted in `public/billkind/fonts` so the page makes no third-party requests.
