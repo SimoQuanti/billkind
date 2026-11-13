@@ -11,6 +11,7 @@ window.BK_I18N = {
     langLabel: "Lingua",
 
     // welcome
+    wKicker: "Pensato per l'Europa",
     wTitle: "Una bolletta.<br>Una mano tesa.",
     wText: "Chi è in difficoltà condivide una bolletta o una storia. Chi può, la paga. Semplice, verificato, da persona a persona.",
     wCta: "Prova la demo",
@@ -241,6 +242,7 @@ window.BK_I18N = {
     back: "Back",
     langLabel: "Language",
 
+    wKicker: "Made for Europe",
     wTitle: "One bill.<br>One helping hand.",
     wText: "People going through a hard time share a bill or a story. Those who can, pay it. Simple, verified, person to person.",
     wCta: "Try the demo",

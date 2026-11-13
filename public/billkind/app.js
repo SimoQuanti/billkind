@@ -196,6 +196,7 @@
           </svg>
         </div>
         <div class="hero-copy">
+          <p class="kicker">${t("wKicker")}</p>
           <h1>${t("wTitle")}</h1>
           <p>${t("wText")}</p>
           <button class="btn primary full" data-action="go" data-arg="path">${t("wCta")} ${ic("right")}</button>

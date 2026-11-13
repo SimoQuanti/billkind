@@ -1,6 +1,6 @@
 # BillKind
 
-**One bill, one helping hand.** People going through a hard time share a bill or a story; those who can, pay it.
+**One bill, one helping hand.** People going through a hard time share a bill or a story; those who can, pay it. A project designed for Europe: Italy, Switzerland and the UK to start with.
 
 This repository is the **interactive demo (MVP)**: no real payments, no real people. Every request, story, donor and leaderboard figure is fictional.
 
@@ -38,9 +38,10 @@ npm run dev                      # http://localhost:8787/billkind/
 
 ## Deploy
 
+Every push to `main` is deployed automatically by Cloudflare Workers Builds. The only manual step, once, is the secret:
+
 ```bash
 npx wrangler secret put RESEND_API_KEY
-npm run deploy
 ```
 
 Optional: set `RESEND_SEGMENT_ID` to add waitlist contacts to a specific Resend segment.
